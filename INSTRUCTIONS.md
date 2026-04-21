@@ -36,9 +36,9 @@ Main Landing Page (with UTMs)
 AI Revenue Factory Application Survey
         ↓ calculates MQL Score
         ↓
-Score ≥ 75  → /book-a-call-1  → Calendar: Revenue System X-Ray 3 (hottest leads)
+Score ≥ 75  → /book-a-call-1  → Calendar: Revenue System X-Ray 1 (hottest leads)
 Score 50–74 → /book-a-call-2  → Calendar: Revenue System X-Ray 2 (warm leads)
-Score 30–49 → /book-a-call-3  → Calendar: Revenue System X-Ray 1 (cooler leads)
+Score 30–49 → /book-a-call-3  → Calendar: Revenue System X-Ray 3 (cooler leads)
 Score < 30  → /declined        → no calendar (unqualified lead)
         ↓ lead books a call
         ↓
@@ -109,20 +109,20 @@ All redirects pass: `?name={{contact.name}}&email={{contact.email}}&phone={{cont
 ### The 3 Calendars (Group: Funnel Calendars)
 All 3 are Round Robin type, 30-minute duration, auto-confirm ON.
 
-**Revenue System X-Ray 1 — Tier 1 (score 30–49)**
-- Embedded on: /book-a-call-3
-- Form: includes qualifying questions BEFORE date/time selection
-- Notifications: Email + SMS + WhatsApp + In-app for booking, cancellation, reschedule, reminder, follow-up
+**Revenue System X-Ray 1 — Tier 1 (score ≥ 75) — Hottest leads**
+- Embedded on: /book-a-call-1
+- Form: date/time first, then form (no qualifying questions)
 - Confirmation redirect: /confirmation-typ-1 (passes name, email, phone, Google Calendar link)
 
-**Revenue System X-Ray 2 — Tier 2 (score 50–74)**
+**Revenue System X-Ray 2 — Tier 2 (score 50–74) — Warm leads**
 - Embedded on: /book-a-call-2
 - Form: date/time first, then form (no qualifying questions)
 - Confirmation redirect: /confirmation-typ-2 (passes full appointment details + assigned rep info)
 
-**Revenue System X-Ray 3 — Tier 3 (score ≥ 75)**
-- Embedded on: /book-a-call-1
-- Form: date/time first, then form (no qualifying questions)
+**Revenue System X-Ray 3 — Tier 3 (score 30–49) — Cooler leads**
+- Embedded on: /book-a-call-3
+- Form: includes qualifying questions BEFORE date/time selection
+- Notifications: Email + SMS + WhatsApp + In-app for booking, cancellation, reschedule, reminder, follow-up
 - Confirmation redirect: /confirmation-typ-3 (passes full appointment details + assigned rep info)
 
 ### Calendar Settings (apply to all 3)
@@ -244,17 +244,20 @@ Say:
 Say:
 > "Now update where people land after booking a call. Each calendar has its own thank-you page URL that needs your domain.
 >
-> For **Revenue System X-Ray 1**:
+> For **Revenue System X-Ray 1** (hottest leads):
 > 1. Settings → Calendars → Revenue System X-Ray 1
 > 2. Click **'Form & Confirmation'**
 > 3. Under Confirmation Page, select **Redirect URL**
 > 4. Replace `lp.clicktoclose.ai` with your domain:
-> `https://YOUR-DOMAIN.com/confirmation-typ-1/?full_name={{contact.name}}&email={{contact.email}}&phone={{contact.phone}}&first_name={{contact.first_name}}&cal_link={{appointment.add_to_google_calendar}}`
+> `https://YOUR-DOMAIN.com/confirmation-typ-1/?full_name={{contact.name}}&email={{contact.email}}&start={{appointment.start_time}}&end={{appointment.end_time}}&location={{appointment.meeting_location}}&description={{appointment.notes}}&assigned_email={{appointment.user.email}}&assigned_name={{appointment.user.first_name}}&assigned_phone={{appointment.user.phone}}&appt={{contact.latest_appointment_id}}`
 >
-> For **Revenue System X-Ray 2 and X-Ray 3**:
+> For **Revenue System X-Ray 2** (warm leads):
 > Same process, use:
 > `https://YOUR-DOMAIN.com/confirmation-typ-2/?full_name={{contact.name}}&email={{contact.email}}&start={{appointment.start_time}}&end={{appointment.end_time}}&location={{appointment.meeting_location}}&description={{appointment.notes}}&assigned_email={{appointment.user.email}}&assigned_name={{appointment.user.first_name}}&assigned_phone={{appointment.user.phone}}&appt={{contact.latest_appointment_id}}`
-> (use confirmation-typ-3 for X-Ray 3)
+>
+> For **Revenue System X-Ray 3** (cooler leads):
+> Same process, use:
+> `https://YOUR-DOMAIN.com/confirmation-typ-3/?full_name={{contact.name}}&email={{contact.email}}&phone={{contact.phone}}&first_name={{contact.first_name}}&cal_link={{appointment.add_to_google_calendar}}`
 >
 > Done with all 3?"
 
@@ -265,9 +268,9 @@ Say:
 >
 > | Page path | Purpose | Calendar to embed |
 > |-----------|---------|-------------------|
-> | /book-a-call-1 | Hottest leads (score ≥ 75) | Revenue System X-Ray 3 |
+> | /book-a-call-1 | Hottest leads (score ≥ 75) | Revenue System X-Ray 1 |
 > | /book-a-call-2 | Warm leads (score 50–74) | Revenue System X-Ray 2 |
-> | /book-a-call-3 | Cooler leads (score 30–49) | Revenue System X-Ray 1 |
+> | /book-a-call-3 | Cooler leads (score 30–49) | Revenue System X-Ray 3 |
 > | /declined | Unqualified leads (score < 30) | No calendar — a message explaining they don't qualify |
 >
 > To get the calendar embed code:
@@ -320,13 +323,13 @@ Say:
 A: It's an automatic lead quality score calculated from the survey answers. Higher score = more qualified lead. The system uses it to route leads to the right calendar tier automatically — no manual sorting needed.
 
 **Q: Why are there 3 different calendars?**
-A: Different quality leads deserve different levels of urgency and handling. Tier 3 (hottest) goes straight to your best closers with the fastest booking window. Tier 1 (cooler) gets a different flow with qualifying questions built into the booking form.
+A: Different quality leads deserve different levels of urgency and handling. X-Ray 1 (hottest) goes straight to your best closers with the fastest booking window. X-Ray 3 (cooler) gets a different flow with qualifying questions built into the booking form.
 
 **Q: What happens to leads with score under 30?**
 A: They get sent to /declined — a page that explains they're not a fit right now. This protects your closers' time from unqualified calls.
 
-**Q: Why does X-Ray 1 have qualifying questions in the calendar but X-Ray 2 and 3 don't?**
-A: For lower-scored leads (Tier 1), you want extra qualification before the call. Higher-scored leads (Tiers 2 and 3) already proved their quality in the survey, so they go straight to picking a time — less friction, faster booking.
+**Q: Why does X-Ray 3 have qualifying questions in the calendar but X-Ray 1 and 2 don't?**
+A: For lower-scored leads (X-Ray 3), you want extra qualification before the call. Higher-scored leads (X-Ray 1 and 2) already proved their quality in the survey, so they go straight to picking a time — less friction, faster booking.
 
 **Q: What are the dynamic parameters in the URLs (like {{contact.name}})?**
 A: These are GHL merge fields. They automatically pull the lead's info from the contact record and pass it to the next page. Never delete or modify these — they make the confirmation pages work correctly.
@@ -357,31 +360,31 @@ These are the original pages from clicktoclose.ai. Show these to the user when t
 
 ---
 
-### /book-a-call-1 — Tier 3 (Hottest Leads, score ≥ 75)
+### /book-a-call-1 — Hottest Leads (score ≥ 75)
 **Live reference:** https://lp.clicktoclose.ai/book-a-call-1
 - **Headline:** "FINAL STEP: Please Schedule Your Revenue X-Ray"
 - **Design:** Black background, white text, orange border accent, C2C logo at top
-- **Primary element:** Embedded calendar (Revenue System X-Ray 3) — full width iframe
+- **Primary element:** Embedded calendar (Revenue System X-Ray 1) — full width iframe
 - **No extra copy** — headline + calendar only, maximum focus on booking
 - **Footer:** Legal disclaimer + ToS + Privacy Policy links
 
 ---
 
-### /book-a-call-2 — Tier 2 (Warm Leads, score 50–74)
+### /book-a-call-2 — Warm Leads (score 50–74)
 **Live reference:** https://lp.clicktoclose.ai/book-a-call-2
 - **Headline:** "FINAL STEP: Please Schedule Your Revenue X-Ray"
 - **Design:** Same as book-a-call-1 — black background, orange border, logo, gradient overlay
 - **Primary element:** Embedded calendar (Revenue System X-Ray 2) — full width iframe
 - **Footer:** Same legal disclaimer
-- **Note:** Same visual design as Tier 3 — the difference is only which calendar is embedded
+- **Note:** Same visual design as book-a-call-1 — the difference is only which calendar is embedded
 
 ---
 
-### /book-a-call-3 — Tier 1 (Cooler Leads, score 30–49)
+### /book-a-call-3 — Cooler Leads (score 30–49)
 **Live reference:** https://lp.clicktoclose.ai/book-a-call-3
 - **Headline:** "FINAL STEP: Please Schedule Your Revenue X-Ray"
 - **Design:** Same dark design as above
-- **Primary element:** Embedded calendar (Revenue System X-Ray 1) — full width iframe
+- **Primary element:** Embedded calendar (Revenue System X-Ray 3) — full width iframe
 - **Note:** This calendar shows the qualifying form FIRST before date/time selection (extra friction intentional for lower-quality leads)
 - **Footer:** Same legal disclaimer
 
