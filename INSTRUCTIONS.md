@@ -112,18 +112,18 @@ All 3 are Round Robin type, 30-minute duration, auto-confirm ON.
 **Revenue System X-Ray 1 — Tier 1 (score ≥ 75) — Hottest leads**
 - Embedded on: /book-a-call-1
 - Form: date/time first, then form (no qualifying questions)
-- Confirmation redirect: /confirmation-typ-1 (passes name, email, phone, Google Calendar link)
+- Confirmation redirect: /confirmation-typ-1 (passes full contact + appointment details)
 
 **Revenue System X-Ray 2 — Tier 2 (score 50–74) — Warm leads**
 - Embedded on: /book-a-call-2
 - Form: date/time first, then form (no qualifying questions)
-- Confirmation redirect: /confirmation-typ-2 (passes full appointment details + assigned rep info)
+- Confirmation redirect: /confirmation-typ-2 (passes full contact + appointment details)
 
 **Revenue System X-Ray 3 — Tier 3 (score 30–49) — Cooler leads**
 - Embedded on: /book-a-call-3
 - Form: includes qualifying questions BEFORE date/time selection
 - Notifications: Email + SMS + WhatsApp + In-app for booking, cancellation, reschedule, reminder, follow-up
-- Confirmation redirect: /confirmation-typ-3 (passes full appointment details + assigned rep info)
+- Confirmation redirect: /confirmation-typ-3 (passes full contact + appointment details)
 
 ### Calendar Settings (apply to all 3)
 - Meeting interval: 30 min
@@ -244,20 +244,20 @@ Say:
 Say:
 > "Now update where people land after booking a call. Each calendar has its own thank-you page URL that needs your domain.
 >
-> For **Revenue System X-Ray 1** (hottest leads):
-> 1. Settings → Calendars → Revenue System X-Ray 1
+> Do this for **each of the 3 calendars**:
+> 1. Settings → Calendars → click the calendar
 > 2. Click **'Form & Confirmation'**
 > 3. Under Confirmation Page, select **Redirect URL**
-> 4. Replace `lp.clicktoclose.ai` with your domain:
-> `https://YOUR-DOMAIN.com/confirmation-typ-1/?full_name={{contact.name}}&email={{contact.email}}&start={{appointment.start_time}}&end={{appointment.end_time}}&location={{appointment.meeting_location}}&description={{appointment.notes}}&assigned_email={{appointment.user.email}}&assigned_name={{appointment.user.first_name}}&assigned_phone={{appointment.user.phone}}&appt={{contact.latest_appointment_id}}`
+> 4. Replace `lp.clicktoclose.ai` with your domain using the URL below (change only the `-typ-X` number):
 >
-> For **Revenue System X-Ray 2** (warm leads):
-> Same process, use:
-> `https://YOUR-DOMAIN.com/confirmation-typ-2/?full_name={{contact.name}}&email={{contact.email}}&start={{appointment.start_time}}&end={{appointment.end_time}}&location={{appointment.meeting_location}}&description={{appointment.notes}}&assigned_email={{appointment.user.email}}&assigned_name={{appointment.user.first_name}}&assigned_phone={{appointment.user.phone}}&appt={{contact.latest_appointment_id}}`
+> **X-Ray 1** → use `/confirmation-typ-1/`
+> `https://YOUR-DOMAIN.com/confirmation-typ-1/?full_name={{contact.name}}&email={{contact.email}}&phone={{contact.phone}}&first_name={{contact.first_name}}&cal_link={{appointment.add_to_google_calendar}}&start={{appointment.start_time}}&end={{appointment.end_time}}&location={{appointment.meeting_location}}&description={{appointment.notes}}&assigned_email={{appointment.user.email}}&assigned_name={{appointment.user.first_name}}&assigned_phone={{appointment.user.phone}}&appt={{contact.latest_appointment_id}}`
 >
-> For **Revenue System X-Ray 3** (cooler leads):
-> Same process, use:
-> `https://YOUR-DOMAIN.com/confirmation-typ-3/?full_name={{contact.name}}&email={{contact.email}}&phone={{contact.phone}}&first_name={{contact.first_name}}&cal_link={{appointment.add_to_google_calendar}}`
+> **X-Ray 2** → use `/confirmation-typ-2/`
+> `https://YOUR-DOMAIN.com/confirmation-typ-2/?full_name={{contact.name}}&email={{contact.email}}&phone={{contact.phone}}&first_name={{contact.first_name}}&cal_link={{appointment.add_to_google_calendar}}&start={{appointment.start_time}}&end={{appointment.end_time}}&location={{appointment.meeting_location}}&description={{appointment.notes}}&assigned_email={{appointment.user.email}}&assigned_name={{appointment.user.first_name}}&assigned_phone={{appointment.user.phone}}&appt={{contact.latest_appointment_id}}`
+>
+> **X-Ray 3** → use `/confirmation-typ-3/`
+> `https://YOUR-DOMAIN.com/confirmation-typ-3/?full_name={{contact.name}}&email={{contact.email}}&phone={{contact.phone}}&first_name={{contact.first_name}}&cal_link={{appointment.add_to_google_calendar}}&start={{appointment.start_time}}&end={{appointment.end_time}}&location={{appointment.meeting_location}}&description={{appointment.notes}}&assigned_email={{appointment.user.email}}&assigned_name={{appointment.user.first_name}}&assigned_phone={{appointment.user.phone}}&appt={{contact.latest_appointment_id}}`
 >
 > Done with all 3?"
 
