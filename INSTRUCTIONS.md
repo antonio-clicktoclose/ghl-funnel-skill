@@ -328,8 +328,6 @@ A: Different quality leads deserve different levels of urgency and handling. X-R
 **Q: What happens to leads with score under 30?**
 A: They get sent to /declined — a page that explains they're not a fit right now. This protects your closers' time from unqualified calls.
 
-**Q: Why does X-Ray 3 have qualifying questions in the calendar but X-Ray 1 and 2 don't?**
-A: For lower-scored leads (X-Ray 3), you want extra qualification before the call. Higher-scored leads (X-Ray 1 and 2) already proved their quality in the survey, so they go straight to picking a time — less friction, faster booking.
 
 **Q: What are the dynamic parameters in the URLs (like {{contact.name}})?**
 A: These are GHL merge fields. They automatically pull the lead's info from the contact record and pass it to the next page. Never delete or modify these — they make the confirmation pages work correctly.
