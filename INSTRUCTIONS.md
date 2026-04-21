@@ -151,11 +151,11 @@ UTM parameters captured and stored automatically in GHL contact fields:
 Example links by channel:
 | Channel | Link format |
 |---------|-------------|
-| Instagram DM | `https://YOUR-DOMAIN.com/?utm_source=instagram&utm_medium=dm&utm_content=leadmagnet-build` |
-| Instagram Bio | `https://YOUR-DOMAIN.com/?utm_source=instagram&utm_medium=bio&utm_content=leadmagnet-build` |
-| Email | `https://YOUR-DOMAIN.com/?utm_source=email&utm_medium=newsletter&utm_content=leadmagnet-build` |
-| YouTube | `https://YOUR-DOMAIN.com/?utm_source=youtube&utm_medium=description&utm_content=leadmagnet-build` |
-| WhatsApp | `https://YOUR-DOMAIN.com/?utm_source=whatsapp&utm_medium=dm&utm_content=leadmagnet-build` |
+| Instagram DM | `https://YOUR-DOMAIN.com/?utm_source=instagram&utm_medium=dm&utm_content=example` |
+| Instagram Bio | `https://YOUR-DOMAIN.com/?utm_source=instagram&utm_medium=bio&utm_content=example` |
+| Email | `https://YOUR-DOMAIN.com/?utm_source=email&utm_medium=newsletter&utm_content=example` |
+| YouTube | `https://YOUR-DOMAIN.com/?utm_source=youtube&utm_medium=description&utm_content=example` |
+| WhatsApp | `https://YOUR-DOMAIN.com/?utm_source=whatsapp&utm_medium=dm&utm_content=example` |
 
 ---
 
@@ -286,15 +286,15 @@ Say:
 > 2. Make sure UTM tracking is turned ON
 >
 > Then, whenever you share your funnel link, always add UTMs. Example:
-> `https://YOUR-DOMAIN.com/?utm_source=instagram&utm_medium=dm&utm_content=leadmagnet-build`
+> `https://YOUR-DOMAIN.com/?utm_source=instagram&utm_medium=dm&utm_content=example`
 >
 > ⚠️ Never share the link without UTMs — without them you can't track which channel is generating leads.
 >
 > Here are ready-to-use link templates:
-> - **Instagram DM:** `https://YOUR-DOMAIN.com/?utm_source=instagram&utm_medium=dm&utm_content=leadmagnet-build`
-> - **Instagram Bio:** `https://YOUR-DOMAIN.com/?utm_source=instagram&utm_medium=bio&utm_content=leadmagnet-build`
-> - **Email:** `https://YOUR-DOMAIN.com/?utm_source=email&utm_medium=newsletter&utm_content=leadmagnet-build`
-> - **YouTube:** `https://YOUR-DOMAIN.com/?utm_source=youtube&utm_medium=description&utm_content=leadmagnet-build`"
+> - **Instagram DM:** `https://YOUR-DOMAIN.com/?utm_source=instagram&utm_medium=dm&utm_content=example`
+> - **Instagram Bio:** `https://YOUR-DOMAIN.com/?utm_source=instagram&utm_medium=bio&utm_content=example`
+> - **Email:** `https://YOUR-DOMAIN.com/?utm_source=email&utm_medium=newsletter&utm_content=example`
+> - **YouTube:** `https://YOUR-DOMAIN.com/?utm_source=youtube&utm_medium=description&utm_content=example`"
 
 ### STEP 9 — Test the Full Funnel
 
@@ -363,7 +363,7 @@ These are the original pages from clicktoclose.ai. Show these to the user when t
 - **Design:** Black background, white text, orange border accent, C2C logo at top
 - **Primary element:** Embedded calendar (Revenue System X-Ray 3) — full width iframe
 - **No extra copy** — headline + calendar only, maximum focus on booking
-- **Footer:** Legal disclaimer (company scaled from $0 to $150M in 3 years, results not guaranteed) + ToS + Privacy Policy links
+- **Footer:** Legal disclaimer + ToS + Privacy Policy links
 
 ---
 
